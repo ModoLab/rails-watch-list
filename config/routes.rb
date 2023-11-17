@@ -8,26 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "lists#index"
 
-  resources :lists do
-      resources :bookmarks
-  end
-  resources :bookmarks
-end
-
-
-Rails.application.routes.draw do
-  resources :lists do
-    resources :bookmarks, only: [:new, :create]
-  end
-
-  resources :bookmarks
-
-  # Pour la ressource Movie, cela dépend de la manière dont vous souhaitez l'utiliser.
-  # Si Movie est une ressource indépendante, vous pouvez le définir comme suit :
-  resources :movies
-
-  # Si Movie est utilisé à travers les bookmarks et les lists, vous pouvez le définir de manière imbriquée :
-  resources :movies do
-    resources :bookmarks, only: [:new, :create]
+  resources :lists, only: %i[index show new create] do
+    resources :bookmarks, only: %i[new create destroy]
   end
 end

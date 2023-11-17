@@ -1,8 +1,21 @@
-<h1>New List</h1>
+<div class="banner py-5 w-100 " style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container ">
+    <h1 class="text-center text-white">Add a new list</h1>
+  </div>
+</div>
 
-<%= simple_form_for @list do |form| %>
-  <%= form.input :name %>
-  <%= form.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex mt-4 text-center justify-content-center">
+      <%= simple_form_for @list do |form| %>
+      <%= form.input :name, :placeholder => 'Choose a name',:label => "Choose a new name" %>
+      <%= form.button :submit %>
+      <% end %>
+    </div>
 
-<%= link_to 'Back', lists_path %>
+    <div class="col text-center mt-4">
+      <%= link_to 'Back', lists_path %>
+    </div>
+
+  </div>
+</div>
