@@ -1,0 +1,28 @@
+<h1><%= @list.name %></h1>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Mes listes</h1>
+  </div>
+</div>
+
+
+
+
+
+<%= simple_form_for @list do |form| %>
+  <%= form.input :name %>
+
+  <%= form.button :submit %>
+<% end %>
+
+<ul>
+  <% @bookmarks.each do |bookmark| %>
+    <li>
+      <%= bookmark.comment %> - <%= bookmark.movie.title %>
+    </li>
+  <% end %>
+</ul>
+
+<%# <%= link_to 'Edit List', edit_list_path(@list) %>
+<%= link_to 'Back', lists_path %>

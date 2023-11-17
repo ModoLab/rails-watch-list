@@ -1,0 +1,19 @@
+<div class="banner py-5 w-100 d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container ">
+    <h1 class="text-center text-white">Mes listes</h1>
+  </div>
+</div>
+
+<ul class="d-flex flex-row my-5">
+  <% @lists.each do |list| %>
+    <li class="w-25 px-5">
+      <div class="card-category rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <h1><%= link_to list.name, list_path(list) %></h1>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+
+
+<%= link_to 'New List', new_list_path %>

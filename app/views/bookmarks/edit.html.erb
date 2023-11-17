@@ -1,0 +1,11 @@
+<h1>Edit Bookmark</h1>
+
+<%= simple_form_for [@list, @bookmark] do |form| %>
+  <%= form.input :comment %>
+  <%= form.association :movie, collection: Movie.all, prompt: 'Select a movie' %>
+
+  <%= form.button :submit %>
+<% end %>
+
+<%= link_to 'Back to Bookmark', list_bookmark_path(@list, @bookmark) %>
+<%= link_to 'Back', list_path(@list) %>
